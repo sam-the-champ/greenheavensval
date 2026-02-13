@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day - GreenHeavens Agroallied</title>
+    
+    <!-- Open Graph Meta Tags for WhatsApp Preview -->
+    <meta property="og:title" content="Happy Valentine's Day - GreenHeavens Agroallied">
+    <meta property="og:description" content="Love grows where care is planted. Celebrate love with GreenHeavens Agroallied.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=1200&h=630&fit=crop">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --deep-green: #1F5E2B;
+            --bright-green: #6DBE45;
+            --romantic-red: #E63946;
+            --cream: #F5EFE6;
+            --blush-pink: #FADADD;
+            --gold: #D4AF37;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #F5EFE6 0%, #fef9f3 50%, #F5EFE6 100%);
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        /* Animated Background Elements */
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .floating-heart {
+            position: absolute;
+            opacity: 0.12;
+            filter: blur(60px);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+        
+        .heart-1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--romantic-red), transparent);
+            top: 10%;
+            left: -10%;
+            animation-delay: 0s;
+            animation-duration: 25s;
+        }
+        
+        .heart-2 {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, var(--blush-pink), transparent);
+            top: 60%;
+            right: -5%;
+            animation-delay: 5s;
+            animation-duration: 30s;
+        }
+        
+        .heart-3 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--romantic-red), transparent);
+            bottom: 20%;
+            left: 50%;
+            animation-delay: 10s;
+            animation-duration: 28s;
+        }
+        
+        .heart-4 {
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, var(--blush-pink), transparent);
+            top: 40%;
+            right: 30%;
+            animation-delay: 15s;
+            animation-duration: 32s;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(30px, -30px) scale(1.1);
+            }
+            50% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+            75% {
+                transform: translate(40px, 10px) scale(1.05);
+            }
+        }
+        
+        /* Floating Leaves */
+        .leaf {
+            position: absolute;
+            font-size: 24px;
+            opacity: 0.2;
+            animation: leafFloat 15s infinite ease-in-out;
+            color: var(--bright-green);
+        }
+        
+        @keyframes leafFloat {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Particle Hearts */
+        .particle-heart {
+            position: absolute;
+            font-size: 12px;
+            opacity: 0.4;
+            animation: particleRise 12s infinite ease-in;
+            color: var(--romantic-red);
+        }
+        
+        @keyframes particleRise {
+            0% {
+                transform: translateY(0) translateX(0) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(50px) scale(1);
+                opacity: 0;
+            }
+        }
+        
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+        }
+        
+        /* Logo */
+        .logo {
+            text-align: center;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInDown 1s ease-out 0.3s forwards;
+        }
+        
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--deep-green);
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .logo-text::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--bright-green), transparent);
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        /* Hero Content */
+        .hero-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .main-heading {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4.5rem;
+            color: var(--romantic-red);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.6s forwards;
+            line-height: 1.2;
+            text-shadow: 2px 2px 20px rgba(230, 57, 70, 0.2);
+        }
+        
+        .subheading {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--deep-green);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.9s forwards;
+            font-weight: 400;
+        }
+        
+        .description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1.2s forwards;
+            font-weight: 300;
+        }
+        
+        /* Button */
+        .cta-button {
+            background: linear-gradient(135deg, var(--bright-green) 0%, var(--deep-green) 100%);
+            color: white;
+            border: none;
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(31, 94, 43, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1.5s forwards;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(31, 94, 43, 0.4);
+        }
+        
+        .cta-button:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+        
+        /* Animation Result Section */
+        .animation-result {
+            margin-top: 3rem;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .animation-result.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .plant-container {
+            position: relative;
+            width: 200px;
+            height: 250px;
+            margin: 0 auto 2rem;
+        }
+        
+        .soil {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+            height: 40px;
+            background: linear-gradient(180deg, #8B4513 0%, #654321 100%);
+            border-radius: 20px 20px 50% 50%;
+            box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .seed {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, #D2691E, #8B4513);
+            border-radius: 50%;
+            opacity: 0;
+            animation: seedDrop 1s ease-out forwards;
+        }
+        
+        @keyframes seedDrop {
+            0% {
+                top: -50px;
+                opacity: 1;
+            }
+            100% {
+                top: 180px;
+                opacity: 1;
+            }
+        }
+        
+        .stem {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 0;
+            background: linear-gradient(180deg, var(--deep-green), var(--bright-green));
+            border-radius: 3px;
+            animation: stemGrow 1.5s ease-out 1s forwards;
+        }
+        
+        @keyframes stemGrow {
+            0% {
+                height: 0;
+            }
+            100% {
+                height: 120px;
+            }
+        }
+        
+        .leaf-left, .leaf-right {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            animation: leafGrow 0.8s ease-out forwards;
+        }
+        
+        .leaf-left {
+            bottom: 100px;
+            left: calc(50% - 30px);
+            background: linear-gradient(135deg, var(--bright-green), var(--deep-green));
+            transform-origin: right center;
+            animation-delay: 2s;
+        }
+        
+        .leaf-right {
+            bottom: 80px;
+            left: calc(50% + 10px);
+            background: linear-gradient(-135deg, var(--bright-green), var(--deep-green));
+            transform-origin: left center;
+            animation-delay: 2.3s;
+        }
+        
+        @keyframes leafGrow {
+            0% {
+                width: 0;
+                height: 0;
+            }
+            100% {
+                width: 40px;
+                height: 30px;
+            }
+        }
+        
+        .heart-bloom {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            font-size: 3rem;
+            animation: heartBloom 1s ease-out 2.8s forwards;
+            filter: drop-shadow(0 5px 15px rgba(230, 57, 70, 0.4));
+        }
+        
+        @keyframes heartBloom {
+            0% {
+                transform: translateX(-50%) scale(0) rotate(0deg);
+            }
+            50% {
+                transform: translateX(-50%) scale(1.2) rotate(10deg);
+            }
+            100% {
+                transform: translateX(-50%) scale(1) rotate(0deg);
+            }
+        }
+        
+        .growth-message {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--deep-green);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 3.5s forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Share Buttons */
+        .share-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 4s forwards;
+        }
+        
+        .share-btn {
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+        
+        .copy-btn {
+            background: linear-gradient(135deg, var(--romantic-red), #c5303a);
+            color: white;
+            box-shadow: 0 5px 20px rgba(230, 57, 70, 0.3);
+        }
+        
+        .copy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(230, 57, 70, 0.4);
+        }
+        
+        .copy-btn.copied {
+            background: linear-gradient(135deg, var(--bright-green), var(--deep-green));
+        }
+        
+        /* Decorative Elements */
+        .decorative-divider {
+            margin: 2rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 1.8s forwards;
+        }
+        
+        .divider-line {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--bright-green), transparent);
+        }
+        
+        .divider-icon {
+            font-size: 1.5rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-heading {
+                font-size: 3.5rem;
+            }
+            
+            .subheading {
+                font-size: 1.2rem;
+            }
+            
+            .description {
+                font-size: 1rem;
+            }
+            
+            .cta-button {
+                padding: 1rem 2.5rem;
+                font-size: 1.1rem;
+            }
+            
+            .logo-text {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            
+            .main-heading {
+                font-size: 2.8rem;
+            }
+            
+            .subheading {
+                font-size: 1.1rem;
+            }
+            
+            .description {
+                font-size: 0.95rem;
+            }
+            
+            .cta-button {
+                padding: 0.9rem 2rem;
+                font-size: 1rem;
+            }
+            
+            .share-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .growth-message {
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* Hidden Class */
+        .hidden {
+            display: none;
+        }
+        
+        /* Sparkle Effect */
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: sparkleAnim 2s infinite ease-in-out;
+            box-shadow: 0 0 10px var(--gold);
+        }
+        
+        @keyframes sparkleAnim {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="background-container">
+        <div class="floating-heart heart-1"></div>
+        <div class="floating-heart heart-2"></div>
+        <div class="floating-heart heart-3"></div>
+        <div class="floating-heart heart-4"></div>
+    </div>
+    
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Logo -->
+        <div class="logo">
+            <span class="logo-icon">🌿</span>
+            <div class="logo-text">GREENHEAVENS AGROALLIED</div>
+        </div>
+        
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <h1 class="main-heading">Happy Valentine's Day</h1>
+            
+            <div class="decorative-divider">
+                <div class="divider-line"></div>
+                <span class="divider-icon">❤️</span>
+                <div class="divider-line"></div>
+            </div>
+            
+            <p class="subheading">Love grows where care is planted.</p>
+            
+            <p class="description">
+                At GreenHeavens Agroallied, we believe love is like farming — it needs patience, nurture, and the right soil to flourish.
+            </p>
+            
+            <button class="cta-button" id="plantButton">
+                Plant a Seed of Love 🌱
+            </button>
+        </div>
+        
+        <!-- Animation Result (Initially Hidden) -->
+        <div class="animation-result hidden" id="animationResult">
+            <div class="plant-container" id="plantContainer">
+                <div class="soil"></div>
+            </div>
+            
+            <p class="growth-message">May your love grow strong and fruitful.</p>
+            
+            <div class="share-buttons">
+                <button class="share-btn whatsapp-btn" id="whatsappBtn">
+                    📱 Share on WhatsApp
+                </button>
+                <button class="share-btn copy-btn" id="copyBtn">
+                    🔗 Copy Link
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Generate floating leaves
+        function createLeaves() {
+            const container = document.querySelector('.background-container');
+            const leafSymbols = ['🍃', '🌿', '🌱'];
+            
+            for (let i = 0; i < 15; i++) {
+                const leaf = document.createElement('div');
+                leaf.className = 'leaf';
+                leaf.textContent = leafSymbols[Math.floor(Math.random() * leafSymbols.length)];
+                leaf.style.left = Math.random() * 100 + '%';
+                leaf.style.animationDelay = Math.random() * 15 + 's';
+                leaf.style.animationDuration = (15 + Math.random() * 10) + 's';
+                leaf.style.fontSize = (20 + Math.random() * 20) + 'px';
+                container.appendChild(leaf);
+            }
+        }
+        
+        // Generate particle hearts
+        function createParticleHearts() {
+            const container = document.querySelector('.background-container');
+            
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'particle-heart';
+                heart.textContent = '💕';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 12 + 's';
+                heart.style.animationDuration = (12 + Math.random() * 8) + 's';
+                container.appendChild(heart);
+            }
+        }
+        
+        // Plant animation
+        document.getElementById('plantButton').addEventListener('click', function() {
+            // Hide button
+            this.style.display = 'none';
+            
+            // Show animation result
+            const animationResult = document.getElementById('animationResult');
+            animationResult.classList.remove('hidden');
+            
+            setTimeout(() => {
+                animationResult.classList.add('active');
+            }, 100);
+            
+            // Create plant elements
+            const plantContainer = document.getElementById('plantContainer');
+            
+            // Seed
+            const seed = document.createElement('div');
+            seed.className = 'seed';
+            plantContainer.appendChild(seed);
+            
+            // Stem
+            setTimeout(() => {
+                const stem = document.createElement('div');
+                stem.className = 'stem';
+                plantContainer.appendChild(stem);
+                
+                // Leaves
+                setTimeout(() => {
+                    const leafLeft = document.createElement('div');
+                    leafLeft.className = 'leaf-left';
+                    plantContainer.appendChild(leafLeft);
+                    
+                    const leafRight = document.createElement('div');
+                    leafRight.className = 'leaf-right';
+                    plantContainer.appendChild(leafRight);
+                    
+                    // Heart bloom
+                    setTimeout(() => {
+                        const heart = document.createElement('div');
+                        heart.className = 'heart-bloom';
+                        heart.textContent = '❤️';
+                        plantContainer.appendChild(heart);
+                        
+                        // Create sparkles around heart
+                        for (let i = 0; i < 8; i++) {
+                            setTimeout(() => {
+                                const sparkle = document.createElement('div');
+                                sparkle.className = 'sparkle';
+                                const angle = (i * 45) * Math.PI / 180;
+                                const distance = 50;
+                                sparkle.style.left = `calc(50% + ${Math.cos(angle) * distance}px)`;
+                                sparkle.style.top = `${20 + Math.sin(angle) * distance}px`;
+                                sparkle.style.animationDelay = (i * 0.1) + 's';
+                                plantContainer.appendChild(sparkle);
+                            }, i * 100);
+                        }
+                    }, 2000);
+                }, 1500);
+            }, 1000);
+        });
+        
+        // WhatsApp share
+        document.getElementById('whatsappBtn').addEventListener('click', function() {
+            const message = encodeURIComponent('Happy Valentine\'s Day! 💚❤️ Love grows where care is planted. 🌱 Check out this beautiful message from GreenHeavens Agroallied: ' + window.location.href);
+            window.open('https://wa.me/?text=' + message, '_blank');
+        });
+        
+        // Copy link
+        document.getElementById('copyBtn').addEventListener('click', function() {
+            const btn = this;
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '✓ Link Copied!';
+                btn.classList.add('copied');
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        });
+        
+        // Initialize
+        createLeaves();
+        createParticleHearts();
+    </script>
+</body>
+</html>
